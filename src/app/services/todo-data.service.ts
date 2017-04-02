@@ -45,6 +45,7 @@ export class TodoDataService {
       let updatedTodo = this.updateTodoById(todo.id, {
         complete: !todo.complete
       });
+       return todo;
 
     }
 
