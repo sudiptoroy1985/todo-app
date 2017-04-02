@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import {TodoDataService} from './services/todo-data.service';
 import { Todo} from './todo'
 
@@ -14,11 +14,9 @@ export class AppComponent {
 
   newTodo: Todo = new Todo();
 
-   addTodo() {
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo();
+  onAddTodo(todo: Todo) {
+    this.todoDataService.addTodo(todo);
   }
- 
 
   removeTodo(todo) {
     this.todoDataService.deleteTodoById(todo.id);
