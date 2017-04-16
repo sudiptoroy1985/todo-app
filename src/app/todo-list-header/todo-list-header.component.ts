@@ -8,20 +8,20 @@ import { Todo } from "app/todo";
 })
 export class TodoListHeaderComponent implements OnInit {
 
- newTodo: Todo = new Todo();
-
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
 
   constructor() {
   }
 
-  addTodo() {
-    this.add.emit(this.newTodo);
-    this.newTodo = new Todo();
+  addTodo(todoTitle:string,$event) {
+    $event.target.value = null;
+    var todoObj = new Todo({
+          title: todoTitle,
+          complete: false
+        });
+    this.add.emit(todoObj);
   }
-
-  
 
   ngOnInit() {
   }

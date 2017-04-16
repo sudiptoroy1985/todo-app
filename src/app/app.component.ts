@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {TodoDataService} from './services/todo-data.service';
 import { Todo } from './todo'
 import { Auth } from "app/services/auth.service";
@@ -13,8 +13,6 @@ export class AppComponent {
   constructor(private todoDataService:TodoDataService,private auth: Auth){    
   }
 
-  newTodo: Todo = new Todo();
-
   onAddTodo(todo: Todo) {
     this.todoDataService.addTodo(todo);
   }
@@ -23,6 +21,7 @@ export class AppComponent {
     this.todoDataService.deleteTodoById(todo.id);
   }
 
+ 
   get todos() {
     return this.todoDataService.getAllTodos();
   }
