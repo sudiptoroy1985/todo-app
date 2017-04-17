@@ -12,6 +12,10 @@ import { HomeComponent } from './home.component';
 import { Auth } from "app/services/auth.service";
 import { authHttpServiceFactory } from 'app/services/auth-http-service-factory.service'
 import { AuthHttp } from "angular2-jwt/angular2-jwt";
+import { TodoListItemComponent } from "app/todo-list/todo-list-item/todo-list-item.component";
+import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.component';
+import { TodoDataService } from "app/services/todo-data.service";
+
 
 
 
@@ -20,7 +24,9 @@ import { AuthHttp } from "angular2-jwt/angular2-jwt";
     AppComponent,
     TodoListHeaderComponent,
     TodoListComponent,
-    HomeComponent
+    HomeComponent,
+    TodoListItemComponent,
+    TodoListFooterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +36,7 @@ import { AuthHttp } from "angular2-jwt/angular2-jwt";
 
   ],
   providers: [
+    TodoDataService,
     appRoutingProviders,
     {
       provide: AuthHttp,

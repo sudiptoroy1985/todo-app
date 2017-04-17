@@ -7,7 +7,7 @@ import { Auth } from "app/services/auth.service";
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [TodoDataService,Auth]
+  providers: [Auth]
 })
 export class AppComponent {
   constructor(private todoDataService:TodoDataService,private auth: Auth){    
@@ -17,17 +17,16 @@ export class AppComponent {
     this.todoDataService.addTodo(todo);
   }
 
-  removeTodo(todo) {
-    this.todoDataService.deleteTodoById(todo.id);
-  }
-
- 
   get todos() {
     return this.todoDataService.getAllTodos();
   }
 
-   toggleTodoComplete(todo) {
+   onToggleComplete(todo:Todo) {
     this.todoDataService.toggleTodoComplete(todo);
+  }
+
+  onRemoveTodo(todo:Todo){
+    this.todoDataService.deleteTodoById(todo.id); 
   }
 
 }

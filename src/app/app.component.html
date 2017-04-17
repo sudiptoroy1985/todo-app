@@ -1,16 +1,9 @@
-<!--<div class="navbar-header">
-  <a class="navbar-brand" href="#">Auth0 - Angular 2</a>
-  <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
-  <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
-</div>-->
  <div class="todoapp">
    <app-todo-list-header (add)="onAddTodo($event)"></app-todo-list-header>
-  <div *ngIf="todos != null">
-     <app-todo-list [todos]="todos"></app-todo-list>
+  <div *ngIf="todos.length > 0">
+     <app-todo-list [todos]="todos" (toggleComplete)="onToggleComplete($event)" (remove)="onRemoveTodo($event)"></app-todo-list>
   </div>  
-  <footer class="footer" *ngIf="todos.length > 0">
-    <span class="todo-count"><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
-  </footer>
+  <todo-list-footer [todos]="todos"></todo-list-footer>
   </div>
 
    <router-outlet></router-outlet> 

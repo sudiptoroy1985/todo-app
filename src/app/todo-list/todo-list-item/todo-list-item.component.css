@@ -1,0 +1,179 @@
+
+/*
+
+  Hack to remove background from Mobile Safari.
+
+  Can't use it globally since it destroys checkboxes in Firefox
+
+*/
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .toggle-all,
+  .toggle {
+    background: none;
+  }
+
+  .toggle {
+    height: 0px;
+  }
+
+  .toggle-all {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+}
+
+.todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ 
+.view{
+  margin-top:20px;
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid #e6e6e6;
+}
+
+
+
+label[for='toggle-all'] {
+  display: none;
+}
+
+
+.toggle-all {
+  top: -55px;
+  left: -12px;
+  width: 60px;
+  height: 34px;
+  text-align: center;
+  border: none; /* Mobile Safari */
+}
+
+label {
+  position: absolute;
+  padding-left:15px;
+  padding-top: 6px;
+  word-break: break-all;  
+  display: inline;
+  line-height: 1.2;
+  transition: color 0.4s;
+  font-size: 24px;
+}
+
+.toggle:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="blue" stroke-width="3"/></svg>');
+}
+
+.toggle:checked:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+
+.editing .view {
+  display: none;
+}
+
+
+.toggle {
+  text-align: center;
+  width: 40px;  
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  border: none; /* Mobile Safari */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.clear-completed,
+html .clear-completed:active {
+  float: right;
+  position: relative;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  margin: 0;
+  margin-top:12px;
+  padding: 0;
+  border: 0;
+  width:0;
+  height:0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input {
+    outline: none;
+}
+
+
+.clear-completed:hover {
+  text-decoration: underline;
+}
+
+
+
+.editing:last-child {
+  margin-bottom: -1px;
+}
+
+:hover .destroy {
+  display: inline;
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+
+ .edit {
+  display: none;
+}
+
+
+
+ .completed label {
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+
+
+.destroy {
+  display: none;  
+  width: 10px;
+  height: 35px;
+  font-size: 30px;
+  color: #cc9a9a;
+  transition: color 0.2s ease-out;
+  margin-left:510px;
+}
+
+.destroy:hover {
+  color: #af5b5e;
+}
+
+.destroy:after {
+  content: '×';
+}

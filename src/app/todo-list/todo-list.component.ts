@@ -20,9 +20,8 @@ export class TodoListComponent implements OnInit {
   @Output()
   toggleComplete: EventEmitter<Todo> = new EventEmitter();
 
- 
 
-  onToggleTodoComplete(todo: Todo) {
+  onToggleComplete(todo: Todo) {
     this.toggleComplete.emit(todo);
   }
 
